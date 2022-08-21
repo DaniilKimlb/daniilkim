@@ -7,9 +7,6 @@
     "build": "astro build --experimental-integrations",
     "check": "astro check"
   },
-  "dependencies": {
-    "svelte": "^3.49.0"
-  },
   "devDependencies": {
     "@astrojs/cloudflare": "^0.2.3",
     "@astrojs/image": "^0.1.1",
