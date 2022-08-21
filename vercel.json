@@ -70,5 +70,12 @@
         }
       ]
     }
+  ],
+  "redirects": [
+    {
+      "source": "/resume",
+      "destination": "/resume-2022.pdf",
+      "permanent": false
+    }
   ]
 }
