@@ -4,6 +4,7 @@ import ActiveLink from 'components/ActiveLink.astro'
 
 export type Props = {
 	title?: string;
+	description?: string;
 }
 
 const { pathname } = Astro.canonicalURL
@@ -11,6 +12,7 @@ const isHome = pathname === '/'
 
 let {
 	title = "Daniil Kim",
+	description = "Hi, I'm Daniil and this is my website, here you can find links to my social networks and information about me.",
 } = Astro.props as Props
 
 if (!isHome) {
@@ -32,10 +34,12 @@ const SOCIAL_LINK = [
 <head>
 	<meta name="viewport" content="width=device-width" />
 	<meta charset="UTF-8">
+	<meta name="description" content={description} />
 	<title>{title}</title>
 	<meta property="og:type" content="website" />
 	<meta property="og:title" content={title} />
 	<meta property="og:site_name" content="Daniil Kim" />
+	<meta property="og:description" content={description} />
 	<meta name="author" content="Daniil Kim" />
 	<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 	<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
