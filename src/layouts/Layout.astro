@@ -1,96 +1,110 @@
 ---
-import 'styles.css';
+import 'styles.css'
 import ActiveLink from 'components/ActiveLink.astro'
 
 export type Props = {
-	title?: string;
-	description?: string;
+  title?: string
+  description?: string
 }
 
-const { pathname } = new URL(Astro.url.pathname, Astro.site);
+const { pathname } = new URL(Astro.url.pathname, Astro.site)
 const isHome = pathname === '/'
 
 let {
-	title = "Daniil Kim",
-	description = "Hi, I'm Daniil and this is my website, here you can find links to my social networks and information about me.",
+  title = 'Daniil Kim',
+  description = "Hi, I'm Daniil and this is my website, here you can find links to my social networks and information about me.",
 } = Astro.props as Props
 
 if (!isHome) {
-	title = `${title} - Daniil Kim`
+  title = `${title} - Daniil Kim`
 }
 
-
 const SOCIAL_LINK = [
-	['👤', 'VK', 'https://vk.com/daniil.k2014'],
-	['✍️', 'Telegram', 'https://t.me/kimdaniil'],
-	['🐙', 'GitHub', 'https://github.com/DaniilKimlb'],
-	['👨‍💻', 'LinkedIn', 'https://www.linkedin.com/in/daniil-kim-3145811b4'],
+  ['👤', 'VK', 'https://vk.com/daniil.k2014'],
+  ['✍️', 'Telegram', 'https://t.me/kimdaniil'],
+  ['🐙', 'GitHub', 'https://github.com/DaniilKimlb'],
+  ['👨‍💻', 'LinkedIn', 'https://www.linkedin.com/in/daniil-kim-3145811b4'],
 ]
 ---
 
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta name="viewport" content="width=device-width" />
+    <meta charset="UTF-8" />
+    <meta name="description" content={description} />
+    <title>{title}</title>
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={title} />
+    <meta property="og:site_name" content="Daniil Kim" />
+    <meta property="og:description" content={description} />
+    <meta name="author" content="Daniil Kim" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5" />
+    <meta name="msapplication-TileColor" content="#da532c" />
+    <meta name="theme-color" content="#ffffff" />
+  </head>
 
-<head>
-	<meta name="viewport" content="width=device-width" />
-	<meta charset="UTF-8">
-	<meta name="description" content={description} />
-	<title>{title}</title>
-	<meta property="og:type" content="website" />
-	<meta property="og:title" content={title} />
-	<meta property="og:site_name" content="Daniil Kim" />
-	<meta property="og:description" content={description} />
-	<meta name="author" content="Daniil Kim" />
-	<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-	<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-	<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-	<link rel="manifest" href="/site.webmanifest">
-	<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
-	<meta name="msapplication-TileColor" content="#da532c">
-	<meta name="theme-color" content="#ffffff">
-</head>
-
-<body class={`preload-transitions bg-white text-slate-800 dark:text-slate-200 dark:bg-neutral-900 min-w-[20rem]
-	antialiased${isHome ? " flex items-center" : '' }`}>
-	<div class={ `w-full m-auto p-6 flex-grow flex flex-col max-w-3xl lg:max-w-4xl ${isHome ? 'h-full max-h-[44rem]'
-		: 'min-h-full' }` }>
-		<header>
-			<nav class="text-sm sm:text-base">
-				<ul class="flex w-full space-x-4">
-					<li class="nav-link">
-						<ActiveLink href="/about">About</ActiveLink>
-					</li>
-					{!isHome && (
-					<li class="nav-link">
-						<ActiveLink href="/">Home</ActiveLink>
-					</li>
-					)}
-				</ul>
-			</nav>
-		</header>
-		<main class="flex flex-col flex-grow py-12">
-			<slot />
-		</main>
-		<footer class="flex mb-4 text-sm sm:text-base flex-col justify-between sm:flex-row sm:items-end">
-			<ul class="flex flex-wrap flex-shrink-0 max-w-full mr-6">
-				{SOCIAL_LINK.map(([emoji, label, href]) => (
-				<li class="mr-4 mt-2">
-					<a href={href} data-emoji={emoji} 
-						class="link-emoji relative inline-block text-slate-500 dark:text-slate-300 transition-colors duration-200 border-b dark:border-slate-700 hover:text-transparent hover:border-transparent">
-						{label}
-					</a>
-				</li>
-				))}
-			</ul>
-		</footer>
-	</div>
-	<script is:inline>
-		setTimeout(() => {
-			if (typeof window !== 'undefined' && document.body.classList.contains('preload-transitions')) {
-				document.body.classList.remove('preload-transitions')
-			}
-		}, 0)
-	</script>
-</body>
-
+  <body
+    class={`preload-transitions bg-white text-slate-800 dark:text-slate-200 dark:bg-neutral-900 min-w-[20rem]
+	antialiased${isHome ? ' flex items-center' : ''}`}
+  >
+    <div
+      class={`w-full m-auto p-6 flex-grow flex flex-col max-w-3xl lg:max-w-4xl ${
+        isHome ? 'h-full max-h-[44rem]' : 'min-h-full'
+      }`}
+    >
+      <header>
+        <nav class="text-sm sm:text-base">
+          <ul class="flex w-full space-x-4">
+            <li class="nav-link">
+              <ActiveLink href="/about">About</ActiveLink>
+            </li>
+            {
+              !isHome && (
+                <li class="nav-link">
+                  <ActiveLink href="/">Home</ActiveLink>
+                </li>
+              )
+            }
+          </ul>
+        </nav>
+      </header>
+      <main class="flex flex-col flex-grow py-12">
+        <slot />
+      </main>
+      <footer
+        class="flex mb-4 text-sm sm:text-base flex-col justify-between sm:flex-row sm:items-end"
+      >
+        <ul class="flex flex-wrap flex-shrink-0 max-w-full mr-6">
+          {
+            SOCIAL_LINK.map(([emoji, label, href]) => (
+              <li class="mr-4 mt-2">
+                <a
+                  href={href}
+                  data-emoji={emoji}
+                  class="link-emoji relative inline-block border-b text-slate-500 transition-colors duration-200 hover:border-transparent hover:text-transparent dark:border-slate-700 dark:text-slate-300"
+                >
+                  {label}
+                </a>
+              </li>
+            ))
+          }
+        </ul>
+      </footer>
+    </div>
+    <script is:inline>
+      setTimeout(() => {
+        if (
+          typeof window !== 'undefined' &&
+          document.body.classList.contains('preload-transitions')
+        ) {
+          document.body.classList.remove('preload-transitions')
+        }
+      }, 0)
+    </script>
+  </body>
 </html>
