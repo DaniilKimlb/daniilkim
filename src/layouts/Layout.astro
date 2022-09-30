@@ -7,7 +7,7 @@ export type Props = {
 	description?: string;
 }
 
-const { pathname } = Astro.canonicalURL
+const { pathname } = new URL(Astro.url.pathname, Astro.site);
 const isHome = pathname === '/'
 
 let {

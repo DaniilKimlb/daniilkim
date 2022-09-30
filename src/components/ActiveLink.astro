@@ -4,7 +4,7 @@ export type Props = {
 }
 
 const { href } = Astro.props
-const { pathname } = Astro.canonicalURL
+const { pathname } = new URL(Astro.url.pathname, Astro.site);
 const isActive = href !== '/' && pathname.startsWith(href)
 ---
 
