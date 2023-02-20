@@ -39,7 +39,6 @@ h6 {
 .nav-link::after {
   @apply pointer-events-none invisible h-0 select-none overflow-hidden font-bold;
   content: attr(data-text);
-  content: attr(data-text) / '';
 }
 
 @media speech {
@@ -57,9 +56,7 @@ h6 {
     #ff61e6 75%,
     #2dd2dd 100%
   );
-  background-size: 400% 0;
   background-clip: text;
-  text-fill-color: transparent;
   -webkit-text-fill-color: transparent;
   background-size: 200% auto;
   animation: slide 10s linear infinite;
