@@ -5,13 +5,6 @@ title: About Me
 
 # About Me
 
----
-layout: layouts/About.astro
-title: About Me
----
-
-# About me #
-
 Hey, my name is Daniil Kim.
 
 I'm 18 years old, and I work as a Software Engineer at [Jusan](https://jusan.kz/). I am from Kazakhstan, the city of Karaganda. I speak Russian and English.
