@@ -91,7 +91,7 @@ h6 {
 }
 
 .link-emoji::after {
-  @apply absolute top-0 left-0 h-full w-full text-center opacity-0;
+  @apply absolute left-0 top-0 h-full w-full text-center opacity-0;
   content: attr(data-emoji);
 
   color: initial;

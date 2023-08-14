@@ -7,7 +7,10 @@ module.exports = {
   jsxBracketSameLine: true,
   endOfLine: 'auto',
   tailwindConfig: './tailwind.config.cjs',
-  plugins: [require('prettier-plugin-astro'), require('prettier-plugin-tailwindcss')],
+  plugins: [
+    require.resolve('prettier-plugin-astro'),
+    require.resolve('prettier-plugin-tailwindcss'),
+  ],
   overrides: [
     {
       files: '*.astro',
