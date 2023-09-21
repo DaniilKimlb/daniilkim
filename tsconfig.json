@@ -8,7 +8,7 @@
     "noEmit": true,
     "strict": true,
     "importsNotUsedAsValues": "error",
-    "types": ["@astrojs/image/client"],
+    "types": ["astro/client"],
     "baseUrl": "./src"
   }
 }
