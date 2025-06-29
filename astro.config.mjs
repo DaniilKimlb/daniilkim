@@ -3,6 +3,7 @@ import tailwind from '@astrojs/tailwind'
 import sitemap from '@astrojs/sitemap'
 import compress from 'astro-compress'
 import vercel from '@astrojs/vercel/serverless'
+import svelte from '@astrojs/svelte'
 
 export default defineConfig({
   site: 'https://daniilkim.me/',
@@ -13,6 +14,7 @@ export default defineConfig({
     },
   }),
   integrations: [
+    svelte(),
     tailwind({ config: { applyBaseStyles: false } }),
     sitemap(),
     compress({ img: false }),

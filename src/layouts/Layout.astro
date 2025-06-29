@@ -1,24 +1,20 @@
 ---
 import 'styles.css'
 import ActiveLink from 'components/ActiveLink.astro'
-
+import NowPlaying from 'components/NowPlaying.svelte'
 export type Props = {
   title?: string
   description?: string
 }
-
 const { pathname } = new URL(Astro.url.pathname, Astro.site)
 const isHome = pathname === '/'
-
 let {
   title = 'Daniil Kim',
   description = "Hi, I'm Daniil and this is my website, here you can find links to my social networks and information about me.",
 } = Astro.props as Props
-
 if (!isHome) {
   title = `${title} - Daniil Kim`
 }
-
 const SOCIAL_LINK = [
   ['📧', 'Email', 'mailto:dan.kim.04lb@gmail.com'],
   ['✍️', 'Telegram', 'https://t.me/kimdaniil'],
@@ -47,7 +43,6 @@ const SOCIAL_LINK = [
     <meta name="msapplication-TileColor" content="#da532c" />
     <meta content="#ce6fea" name="theme-color" />
   </head>
-
   <body
     class={`preload-transitions bg-white text-slate-800 dark:text-slate-200 dark:bg-neutral-900 min-w-[20rem]
 	antialiased${isHome ? ' flex items-center' : ''}`}
@@ -93,6 +88,9 @@ const SOCIAL_LINK = [
             ))
           }
         </ul>
+        <section class="-m-1 mr-auto mt-4 max-w-full overflow-hidden p-1 sm:mr-0 sm:mt-0">
+          <NowPlaying client:only />
+        </section>
       </footer>
     </div>
     <script is:inline>
