@@ -1,3 +1,5 @@
+import { getAppleMusicUrl } from './apple-music'
+
 export interface LastfmTrack {
   name: string
   artist: string
@@ -52,12 +54,12 @@ export function getBestImage(images: any[]): string | null {
  */
 export function getDefaultImage(seed: string = 'default'): string {
   const gradients = [
-    ['#1ed760', '#1db954'], // Spotify green
-    ['#8b5cf6', '#ec4899'], // Purple to pink
-    ['#06b6d4', '#3b82f6'], // Cyan to blue
-    ['#10b981', '#059669'], // Green shades
-    ['#f59e0b', '#ea580c'], // Orange shades
-    ['#ef4444', '#dc2626'], // Red shades
+    ['#1ed760', '#1db954'],
+    ['#8b5cf6', '#ec4899'],
+    ['#06b6d4', '#3b82f6'],
+    ['#10b981', '#059669'],
+    ['#f59e0b', '#ea580c'],
+    ['#ef4444', '#dc2626'],
   ]
 
   const index = seed.length % gradients.length
@@ -92,7 +94,7 @@ export function parseTrack(trackData: any): LastfmTrack | null {
     name,
     artist,
     album: trackData.album?.['#text'] || '',
-    url: trackData.url || '#',
+    url: getAppleMusicUrl(artist, name),
     coverUrl: getBestImage(trackData.image) || getDefaultImage(artist + name),
     isPlaying,
     timestamp: trackData.date?.uts ? parseInt(trackData.date.uts) : undefined,
