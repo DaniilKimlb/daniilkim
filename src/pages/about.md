@@ -38,7 +38,7 @@ In case you are wondering what tech I am using daily and for development
 - Dell UltraSharp U2723QE 27" 4K
 - LG 27QP88D 27" QHD
 - iPad 9th
-- Keychron K2
+- Logitech MX Keys Mini
 - Logitech MX Master 3S
 - Fifine A8
 - Sony WH-1000XM4
@@ -52,4 +52,4 @@ In case you are wondering what tech I am using daily and for development
 
 - Editor: Zed
 - Theme: NStlgy Glass Dark
-- Terminal: Ghostty and ZSH with Starship prompt
+- Terminal: Ghostty and ZSH with Starship
